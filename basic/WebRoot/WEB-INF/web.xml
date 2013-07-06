@@ -15,6 +15,18 @@
 		<param-value>classpath:applicationContext*.xml</param-value>
 	</context-param>
 	
+	<!-- Struts 配置   -->
+	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>
+			org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>*.action</url-pattern>
+	</filter-mapping>
+	
    <!--初始化日志配置文件 -->
     <context-param>
         <param-name>logbackConfigLocation</param-name>
