@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="sample.order">
+
+	<resultMap id="OrderMap" type="order">
+		<id property="pkid" column="pkid" />
+		<result property="mallOrderId" column="mall_order_id" />
+		<result property="merchantId" column="merchant_id" />
+		<result property="merchantName" column="merchant_name" />
+		<result property="terminalId" column="terminal_id" />
+		<result property="amount" column="amount" />
+		<result property="mallId" column="mall_id" />
+		<result property="userId" column="user_id" />
+		<result property="bolishDate" column="bolish_date" />
+		<result property="payDate" column="pay_date" />
+		<result property="createDate" column="create_date" />
+		<result property="updateDate" column="update_date" />
+		<result property="csn" column="csn" />
+		<result property="status" column="status" />
+		<result property="transType" column="trans_type" />
+		<result property="sn" column="sn" />
+		<result property="debit" column="debit" />
+		<result property="profit" column="profit" />
+		<result property="appId" column="app_id" />
+		<result property="sp" column="sp" />
+		<result property="province" column="province" />
+		<result property="city" column="city" />
+		<result property="phone" column="phone" />
+		<result property="debitDf" column="DEBIT_DF" />
+		<result property="fromAccount" column="FROM_ACCOUNT" />
+		<result property="receiveAccount" column="RECEIVE_ACCOUNT" />
+		<result property="merId" column="mer_id" />
+		<result property="IP" column="IP" />
+		<result property="bsOrderId" column="bs_order_id" />
+		<result property="sign" column="sign" />
+	</resultMap>
+	
+	<select id="select" parameterType="java.util.Map" resultType="order"> 
+			SELECT *
+			FROM  MPI_ORDER O
+			<where>  
+		        <if test="pkid !=null and pkid != ''">  
+		            O.PKID = #{pkid, jdbcType=VARCHAR}  
+		        </if>  
+	        </where>
+	</select>
+
+</mapper>
