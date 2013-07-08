@@ -35,12 +35,31 @@
 		<result property="sign" column="sign" />
 	</resultMap>
 	
-	<select id="select" parameterType="java.util.Map" resultType="order"> 
+	<select id="select" parameterType="java.util.Map" resultMap="OrderMap"> 
 			SELECT *
 			FROM  MPI_ORDER O
 			<where>  
-		        <if test="pkid !=null and pkid != ''">  
-		            O.PKID = #{pkid, jdbcType=VARCHAR}  
+		        <if test="merchantName !=null and merchantName != ''">  
+		            O.merchant_name = #{merchantName, jdbcType=VARCHAR}  
+		        </if>  
+		        <if test="phone !=null and phone != ''">  
+		            O.phone = #{phone, jdbcType=VARCHAR}  
+		        </if>  
+	        </where>
+	        <if test="sort != null and sort != ''">
+	        	ORDER BY ${sort}
+	        </if>
+	</select>
+	
+	<select id="count" parameterType="java.util.Map" resultType="java.lang.Integer"> 
+			SELECT count(*)
+			FROM  MPI_ORDER O
+			<where>  
+		        <if test="merchantName !=null and merchantName != ''">  
+		            O.merchant_name = #{merchantName, jdbcType=VARCHAR}  
+		        </if>  
+		        <if test="phone !=null and phone != ''">  
+		            O.phone = #{phone, jdbcType=VARCHAR}  
 		        </if>  
 	        </where>
 	</select>

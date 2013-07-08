@@ -11,6 +11,8 @@ import com.rainy.mini.base.model.BaseVO;
  * @date 2012-1-13
  */
 public class Order extends BaseVO {
+	/**  */
+	private static final long serialVersionUID = -8436438004963278739L;
 	/**
 	 * 支付订单号
 	 */

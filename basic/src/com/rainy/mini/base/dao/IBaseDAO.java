@@ -113,4 +113,14 @@ public interface IBaseDAO {
 	<T extends Serializable> List<T> queryList(String type, Object object,
 			int pageNo, int pageSize);
 
+	/**
+	 * 
+	 * 查询记录数
+	 * 
+	 * @param <T> VO对象
+	 * @param type sql
+	 * @param t 查询参数
+	 * @return 记录数
+	 */
+	<T extends BaseVO> int count(String type, T t);
 }
